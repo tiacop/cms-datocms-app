@@ -14,7 +14,7 @@ export default function Index({ allStories }) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Next.js Example with {CMS_NAME}</title>
         </Head>
         <Container>
           <Intro />
