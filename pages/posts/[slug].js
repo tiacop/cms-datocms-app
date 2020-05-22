@@ -22,7 +22,7 @@ export default function Story({ story, morePosts, preview }) {
       <Container>
         <Header />
         {router.isFallback ? (
-          <div>bla</div>
+          <div>loading</div>
         ) : (
           <>
             <article>
