@@ -48,7 +48,7 @@ export default function Story({ story, morePosts, preview }) {
   )
 }
 
-export async function getStaticProps({ params, preview = null }) {
+export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
 
   return {
@@ -57,6 +57,7 @@ export async function getStaticProps({ params, preview = null }) {
       story: {
         ...data?.story,
       },
+      unstable_revalidate: 1
     },
   }
 }

@@ -39,5 +39,6 @@ export async function getStaticProps({ preview }) {
   const allStories = (await getAllPostsForHome(preview)) || []
   return {
     props: { allStories },
+    unstable_revalidate: 1
   }
 }
