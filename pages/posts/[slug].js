@@ -57,8 +57,8 @@ export async function getStaticProps({ params, preview = false }) {
       story: {
         ...data?.story,
       },
-      unstable_revalidate: 1
     },
+    unstable_revalidate: 1
   }
 }
 
