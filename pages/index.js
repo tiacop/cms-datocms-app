@@ -1,44 +1,12 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import C from './en/index'
 
-export default function Index({ allStories }) {
-  const heroPost = allStories[0]
-  const morePosts = allStories.slice(1)
-  return (
-    <>
-      <Layout>
-        <Head>
-          <title>Next.js Example with {CMS_NAME}</title>
-        </Head>
-        <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost._firstPublishedAt}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.abstract}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
-    </>
-  )
+export default function Index(props) {
+  const router = useRouter()
+  useEffect(() => { router.replace('/en') }, [])
+  return <C {...props} />
 }
 
-export async function getStaticProps({ preview }) {
-  const allStories = (await getAllPostsForHome(preview)) || []
-  return {
-    props: { allStories },
-    unstable_revalidate: 1
-  }
-}
+Index = Object.assign(Index, { ...C })
+export * from './en/index'

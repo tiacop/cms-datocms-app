@@ -1,0 +1,11 @@
+{
+  "allLanguages": ["en", "de", "it"],
+  "defaultLanguage": "en",
+  "defaultLangRedirect": "lang-path",
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/dashboard": ["home"],
+    "rgx:^/more-examples": ["more-examples"]
+  }
+}
