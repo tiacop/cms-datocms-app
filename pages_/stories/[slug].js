@@ -68,7 +68,7 @@ export async function getStaticProps({ lang, params, preview = false }) {
         ...data?.story,
       },
     },
-    unstable_revalidate: 1
+    revalidate: 1
   }
 }
 
